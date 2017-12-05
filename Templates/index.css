@@ -15,7 +15,7 @@
 }
 
 .dialog-popup {
-    background: none repeat scroll 0 0 #CCCCCC;
+    background: none repeat scroll 0 0 #FFFFFF;
     border: 2px solid #222222;
     border-radius: 3px 3px 3px 3px;
     font-family: Verdana,Geneva,sans-serif;
@@ -23,7 +23,7 @@
     display: none;
     left: 50%;
     position: fixed;
-    top: 50%;
+    top: 20%;
     z-index: 99999;
 }
 
@@ -73,7 +73,7 @@
 }
 
 .dialog-popup form button.submit:hover {
-    background-color: #E0E0E0;
+    background-color: #FFFFFF;
 }
 
 #forgot-password-link {
@@ -89,4 +89,15 @@
   border-style: none;
 	width: 32px;
 	height: 32px;
+}
+
+#text_signIn {
+  background-color:#5abcd3;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+#username, #password {
+  background-color:#BDE5ED;
 }
