@@ -34,17 +34,21 @@
         <div id="sign_in">
             <a href="#" data-selector="#login-dialog" class="dialog-link">SIGN IN</a>
             <div id="login-dialog" class="dialog-popup">
-                <a href="#" class="close close-button close_sprite" style="padding-top: 10px;"></a>
+                <a href="#" class="close close-button close_sprite" style="margin-left: 0px;"></a>
                 <div id="text_signIn"> <strong>SIGN IN</strong> </div>
                 <form method="post" action="#">
                     <fieldset>
                         <label for="username">
-                            <span  style="padding-top:10px;">Username</span>
+                            <span style="padding-left:20px;padding-top:10px;font: 17px roboto medium">User name</span>
                             <input type="text" id="username" name="username" placeholder="Username" value=""></input>
                         </label>
                         <label for="password">
-                            <span>Password</span>
+                            <span style="padding-left:20px;padding-top:10px;font: 17px roboto medium">Password</span>
                             <input type="password" id="password" name="password" placeholder="Password" value=""></input>
+                        </label>
+                        <label for"remember_me">
+                            <span style="padding-left:20px;padding-top:10px;font: 17px roboto medium">Remember me</span>
+                            
                         </label>
                         </fieldset>
                     <button class="submit" type="button">Login</button>
