@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"-->
+        <link rel="stylesheet" href="index.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <title>InBetween Bookstore</title>
+
+        <script>
+            $(document).ready(function(){
+              $('.dialog-link').click(function() {
+                  var dialog_id = $(this).attr('data-selector');
+                  $('#dialog-overlay').fadeIn(200);
+                  $(dialog_id).fadeIn(200);
+                  $(dialog_id).css({
+                      'margin-top' : -($(dialog_id).height() + 4) / 2,
+                      'margin-left' : -($(dialog_id).width() + 4) / 2
+                  });
+                  return false;
+              });
+
+              $('.dialog-popup a.close, #dialog-overlay').click(function() {
+                  $('.dialog-popup').fadeOut(200);
+                  $('#dialog-overlay').fadeOut(200);
+                  return false;
+              });
+            });
+        </script>
+
+    </head>
+
+    <body>
+        <div id="sign_in">
+            <a href="#" data-selector="#login-dialog" class="dialog-link">SIGN IN</a>
+            <div id="login-dialog" class="dialog-popup">
+                <a href="#" class="close close-button close_sprite"></a>
+                <form method="post" action="#">
+                    <fieldset>
+                        <label for="username">
+                            <span>Username</span>
+                            <input type="text" id="username" name="username" placeholder="Username" value=""></input>
+                        </label>
+                        <label for="password">
+                            <span>Password</span>
+                            <input type="password" id="password" name="password" placeholder="Password" value=""></input>
+                        </label>
+                        </fieldset>
+                    <button class="submit" type="button">Login</button>
+                    <a href="#" id="forgot-password-link">Forgot your password? Click here.</a>
+                </form>
+            </div>
+            <div id="dialog-overlay" title="Click here to close the dialog">
+        </div>
+    </body>
+
+</html>
