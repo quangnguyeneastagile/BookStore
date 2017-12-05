@@ -1,62 +1,91 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"-->
-        <link rel="stylesheet" href="index.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <title>InBetween Bookstore</title>
+<html lang="en">
+<head>
+  <title>In Betweener Book Store</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
 
-        <script>
-            $(document).ready(function(){
-              $('.dialog-link').click(function() {
-                  var dialog_id = $(this).attr('data-selector');
-                  $('#dialog-overlay').fadeIn(200);
-                  $(dialog_id).fadeIn(200);
-                  $(dialog_id).css({
-                      'margin-top' : -($(dialog_id).height() + 4) / 2,
-                      'margin-left' : -($(dialog_id).width() + 4) / 2
-                  });
-                  return false;
-              });
+<div class="container">
+  <h1>In Betweener</h1>
 
-              $('.dialog-popup a.close, #dialog-overlay').click(function() {
-                  $('.dialog-popup').fadeOut(200);
-                  $('#dialog-overlay').fadeOut(200);
-                  return false;
-              });
-            });
-        </script>
+  <!-- Trigger the login modal dialog with a link -->
+  <a href="#" data-toggle="modal" data-target="#signInModal">SIGN IN</a>
+  <!--  END SIGN IN Modal -->
 
-    </head>
-
-    <body>
-        <div id="sign_in">
-            <a href="#" data-selector="#login-dialog" class="dialog-link">SIGN IN</a>
-            <div id="login-dialog" class="dialog-popup">
-                <a href="#" class="close close-button close_sprite" style="margin-left: 0px;"></a>
-                <div id="text_signIn"> <strong>SIGN IN</strong> </div>
-                <form method="post" action="#">
-                    <fieldset>
-                        <label for="username">
-                            <span style="padding-left:20px;padding-top:10px;font: 17px roboto medium">User name</span>
-                            <input type="text" id="username" name="username" placeholder="Username" value=""></input>
-                        </label>
-                        <label for="password">
-                            <span style="padding-left:20px;padding-top:10px;font: 17px roboto medium">Password</span>
-                            <input type="password" id="password" name="password" placeholder="Password" value=""></input>
-                        </label>
-                        <label for"remember_me">
-                            <span style="padding-left:20px;padding-top:10px;font: 17px roboto medium">Remember me</span>
-                            
-                        </label>
-                        </fieldset>
-                    <button class="submit" type="button">Login</button>
-                    <a href="#" id="forgot-password-link">Forgot your password? Click here.</a>
-                </form>
-            </div>
-            <div id="dialog-overlay" title="Click here to close the dialog">
+  <div class="modal fade" id="signInModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <!-- Modal Header-->
+        <div class="modal-header header_background white_color">
+            <a href="#" class="close_sprite" data-dismiss="modal"></a>
+            <h3 class="modal-title">SIGN IN</span></h3>
         </div>
-    </body>
+        <!-- END Modal Header-->
 
+        <!-- Modal Login Content-->
+        <div class="modal-body left_padding">
+              <form method="post" action="#">
+                  <fieldset>
+                      <div class="form-group row col-lg-12">
+                          <label for="username">
+                            <div class="row">User name</div>
+                            <div class="row">
+                                <input type="text" id="username" name="username" value=""></input>
+                            </div>
+                          </label>
+                      </div>
+
+                      <div class="form-group row col-lg-12">
+                          <label for="password">
+                            <div class="row">Password</div>
+                            <div class="row">
+                                <input type="text" id="password" name="password" value="" style="border-style: none;"></input>
+                            </div>
+                          </label>
+                      </div>
+
+                      <div class="form-group row">
+                          <label for="remember">
+                            <div class="col-md-8 text-left">
+                                <div class="row">
+                                    <span>Remember me</span>
+                                    <input type="checkbox" class="checkbox style-2 pull-right"></label>
+                                </div>
+                                <div class="row">
+                                    <a href="#" id="forgot-password-link">Forgot your password?</a>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                              <button class="submit signIn_sprite" type="button"></button>
+                            </div>
+                          </label>
+                      </div>
+                  </fieldset>
+              </form>
+        </div>
+
+        <div class="modal-footer">
+            <div class="col-md-8 text-left">
+                <label for="signUp">NOT A MEMBER?</label>
+            </div>
+            <div class="col-md-4 pull-right">
+                <button class="submit signUp_sprite" type="button"></button>
+            <div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- END SIGN IN Modal -->
+
+</div>
+
+</body>
 </html>
