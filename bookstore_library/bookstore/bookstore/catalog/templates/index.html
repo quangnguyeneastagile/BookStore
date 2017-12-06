@@ -1,0 +1,24 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+<title> InBetweener Homepage </title>
+{% endblock %}
+
+{% block content %}
+<!-- Trigger the login modal dialog with a link -->
+<a href="#" data-toggle="modal" data-target="#signInModal">SIGN IN</a>
+<!--  END SIGN IN Modal -->
+
+<h1><strong>In Betweener Homepage</strong></h1>
+<p>Welcome to <em>InBetweener</em>, a book store with huge collection of books in multiple categories.</p>
+
+<h2><strong> Current <em>InBetweener<em> Summary<strong></h2>
+<p>The bookstore has the following record counts:</p>
+<ul>
+  <li><strong>Books:</strong> {{ num_books }}</li>
+  <li><strong>Authors:</strong> {{ num_authors }}</li>
+</ul>
+
+{% include 'signin.html' %}
+
+{% endblock %}
