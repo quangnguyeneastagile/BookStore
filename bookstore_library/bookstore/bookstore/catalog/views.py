@@ -29,11 +29,12 @@ def book_list_view(request):
         raise Http404("No book in the store!")
     #book_id=get_object_or_404(Book, pk=pk)
     else:
-        book_list = Book
+        category_objs = Category.objects.all()
+        print("Catergory inside: ", category_objs)
         return render(
             request,
             'catalog/book_list.html',
-            context={'book_list':book_list,}
+            context={'category_objs':category_objs,}
         )
 
 class BookListView(generic.ListView):

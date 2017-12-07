@@ -1,5 +1,59 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  
+<div class="container">
+<div id="categories-tab">
+    <ul class="nav nav-tabs">
+    {% for category in category_objs %}
+        {% if forloop.first %}
+            <li class="h4 active">
+                <a id="tab-{{ category.name | slugify }}" href="#{{ category.name | slugify }}" data-toggle="tab" aria-expanded="true">
+                    <i class="fa fa-folder-o" aria-hidden="true"></i> &nbsp;
+                    {{ category.name }}
+                </a>
+            </li>
+        {% else %}
+            <li class="h4">
+                <a id="tab-{{ category.name | slugify }}" href="#{{ category.name | slugify }}" data-toggle="tab" aria-expanded="false">
+                    <i class="fa fa-folder-o" aria-hidden="true"></i> &nbsp;
+                    {{ category.name }}
+                </a>
+            </li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+    <div id="product-in-category" class="tab-content">
+    {% for category in category_objs %}
+        {% if forloop.first %}
+            <div class="tab-pane fade active in" id="{{ category.name | slugify }}">
+        {% else %}
+            <div class="tab-pane fade" id="{{ category.name | slugify }}">
+        {% endif %}
+                <p>
+                <div class="row post-grid">
+                    {% for book in category.book_set.all %}
+                        {% if book.quantity > 0 %}
+                        <div class="col-sm-4">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    {% load static %}
+                                    <a href="{% url 'book-detail' book.id %}"><img src="{{ book.image.url }}" alt="No image" class="img-responsive"/></a>
+                                </div>
+                            </div>
+                            <p>
+                                <p>
+                                <span><i class="fa fa-dollar" aria-hidden="true"></i>&nbsp; {{book.price}}</span>
+                                &nbsp; &nbsp;
+                                <span><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp; {{book.quantity}}</span>
+                                <a href="{% url 'book-detail' book.id %}"><h4>{{ book.title }}</h4>        </a>
+                            </p>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+    {% endfor %}
+    </div>
+</div>
+</div>
 {% endblock %}

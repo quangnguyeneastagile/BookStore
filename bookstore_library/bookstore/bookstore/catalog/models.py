@@ -32,6 +32,8 @@ class Book(models.Model):
     category = models.ForeignKey('Category',on_delete=models.SET_NULL, null=True)
     author = models.ForeignKey('Author', on_delete=models.SET_NULL, null=True)
     description = models.TextField(default="No description availalbe.")
+    quantity = models.IntegerField("Quantity", default=0)
+    price = models.IntegerField("Price", default=0)
     image = models.ImageField(upload_to='uploads/%Y/%m/%d/')
 
     def image_tag(self):

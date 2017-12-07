@@ -5,6 +5,6 @@
 
   <p><strong>Author:</strong> <a href="">{{ book.author }}</a></p> <!-- author detail link not yet defined -->
   <p><strong>Description:</strong> {{ book.description }}</p>
-  <p><strong>Category:</strong> {% for genre in book.category.all %} {{ category }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
-  
+  <p><strong>Category:</strong> {{book.category }}</p>
+
 {% endblock %}
