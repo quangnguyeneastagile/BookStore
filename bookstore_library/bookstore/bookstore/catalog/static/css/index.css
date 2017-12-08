@@ -18,6 +18,18 @@
   height: 40px;
 }
 
+.book_sprite {
+	background: url('../imgs/sprite.png') no-repeat -602px -35px;
+	width: 309px;
+	height: 228px;
+}
+
+.shopping_sprite {
+	background: url('../imgs/sprite.png') no-repeat -276px -162px;
+	width: 178px;
+	height: 41px;
+}
+
 .sidebar-nav {
     margin-top: 20px;
     padding: 0;
@@ -50,4 +62,28 @@
   border-style: none;
   width:270px;
   height:30px;
+}
+
+.box_color {
+  background-color:#BDE5ED;
+  color: green;
+}
+
+.col-centered{
+  text-align: center;
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.error_header {
+  color: #5ABCD3;
+  font-family: Lobster;
+  font-size: 54px;
+}
+
+.error_content {
+  color: #000000;
+  font-family: Roboto;
+  font-size: 32px;
 }

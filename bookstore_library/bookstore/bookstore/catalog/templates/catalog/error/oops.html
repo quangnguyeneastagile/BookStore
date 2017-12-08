@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+<title> You're not authorised </title>
+{% endblock %}
+
+{% block content %}
+<div class="col-centered">
+  <div class="img-responsive book_sprite col-centered"></div>
+  <br>
+  <h1 class="col-centered error_header">Oops!</h1>
+  <br>
+  <p class="col-centered error_content">Sorry, the page you are looking for cannot be found.</p>
+  <br>
+  <button class = "shopping_sprite" href="{% url 'index' %"}></button>
+</div>
+{% endblock %}

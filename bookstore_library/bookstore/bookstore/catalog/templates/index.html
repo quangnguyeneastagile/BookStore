@@ -11,12 +11,17 @@
 
 <h2><strong> Current <em>InBetweener<em> Summary<strong></h2>
 <p>The bookstore has the following record counts:</p>
-<ul>
-  <li><strong>Books:</strong> {{ num_books }}</li>
-  <li><strong>Authors:</strong> {{ num_authors }}</li>
-</ul>
 
 <hr>
+  <!-- Create a form to filter category -->
+  <form action="" method="post">
+        {% csrf_token %}
+        <lable for="book_author">Enter author name: </label>
+        {{ form }}
+        <input type="submit" value="OK">
+  </form>
+<hr>
+
 
 <h1>Book List</h1>
 

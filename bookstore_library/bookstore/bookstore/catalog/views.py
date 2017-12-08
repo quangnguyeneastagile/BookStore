@@ -5,28 +5,42 @@ from .models import *
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-import requests
+#from django.contrib.auth.decorators import permission_required
 
+from .forms import AuthorForm
 # Create your views here.
 
+#@permission_required('catalog.can_mark_returned')
 def index(request):
-    num_books = Book.objects.all().count()
-    num_authors = Author.objects.all().count()
+    #read book author to filter from form
+    if request.method == 'POST':
+        form = AuthorForm(request.POST)
+        if form.is_valid():
+            author_name = request.session.get('author_name', '')
+            request.session['author_name'] = form.cleaned_data['author_name']
+            author_name = request.session.get('author_name', '')
+            book_list = Book.objects.filter(author__name__contains=author_name)
+    else:
+        author_name = request.session.get('author_name', '')
+        book_list = Book.objects.filter(author__name__contains=author_name)
+        form = AuthorForm(initial={'author_name':'Type in author name'})
 
-    book_list = Book.objects.filter(Category__name__contains='Hugo CDE')
-
-    page = request.GET.get('page', 1)
-    paginator = Paginator(book_list,2) #2 items per page
-    try:
-        book_list = paginator.page(page)
-    except PageNotAnInteger:
-        book_list = paginator.page(1)
-    except EmptyPage:
-        book_list = paginator.page(paginator.num_pages)
+    if book_list.all().count() <= 0:
+        request.session['author_name'] = ''
+        return render(request, 'catalog/error/oops.html', {})
+    else:
+        page = request.GET.get('page', 1)
+        paginator = Paginator(book_list,2) #2 items per page
+        try:
+            book_list = paginator.page(page)
+        except PageNotAnInteger:
+            book_list = paginator.page(1)
+        except EmptyPage:
+            book_list = paginator.page(paginator.num_pages)
 
     return render(request,
                 'index.html',
-                context={'num_books':num_books,'book_list':book_list,},
+                context={'book_list':book_list,'form':form},
     )
 
 #----------------------------------------------------------------------------------
