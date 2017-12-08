@@ -10,6 +10,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto" />
   <!-- Add additional CSS in static file -->
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/index.css' %}"/>
@@ -26,7 +27,18 @@
             <!-- Trigger the login modal dialog with a link -->
             <a href="#" data-toggle="modal" data-target="#signInModal">SIGN IN</a>
             {% include 'signin.html' %}
-            <!--  END SIGN IN Modal -->
+          </li>
+          <li>
+            <a href="#" data-toggle="modal" data-target="#PopupActivateModal">Activate Popup</a>
+            {% include 'please_activate_popup.html' %}
+          </li>
+          <li>
+            <a href="#" data-toggle="modal" data-target="#PopupOopsModal">Oops Popup</a>
+            {% include 'oops_popup.html' %}
+          </li>
+          <li>
+            <a href="#" data-toggle="modal" data-target="#PopupBrowseModal">BROWSE</a>
+            {% include 'browse_popup.html' %}
           </li>
         {% endblock %}
       </div>

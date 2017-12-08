@@ -7,7 +7,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 #from django.contrib.auth.decorators import permission_required
 
-from .forms import AuthorForm
+from .forms import *
 # Create your views here.
 
 #@permission_required('catalog.can_mark_returned')
@@ -15,19 +15,32 @@ def index(request):
     #read book author to filter from form
     if request.method == 'POST':
         form = AuthorForm(request.POST)
+        form1 = CategoryForm(request.POST)
         if form.is_valid():
             author_name = request.session.get('author_name', '')
             request.session['author_name'] = form.cleaned_data['author_name']
             author_name = request.session.get('author_name', '')
             book_list = Book.objects.filter(author__name__contains=author_name)
+        if form1.is_valid():
+            category_name = request.session.get('category_name','')
+            request.session['category_name'] = form1.cleaned_data['category_name']
+            category_name = request.session.get('category_name', '')
+            book_list = Book.objects.filter(category__name__contains=category_name)
+
     else:
+        category_name = request.session.get('category_name','')
         author_name = request.session.get('author_name', '')
-        book_list = Book.objects.filter(author__name__contains=author_name)
+        book_list = Book.objects.filter(author__name__contains=author_name, category__name__contains=category_name)
         form = AuthorForm(initial={'author_name':'Type in author name'})
+        form1 = CategoryForm(initial={'category_name':'All categories'})
 
     if book_list.all().count() <= 0:
         request.session['author_name'] = ''
-        return render(request, 'catalog/error/oops.html', {})
+        request.session['category_name'] = ''
+        author_name = request.session.get('author_name', '')
+        category_name = request.session.get('category_name', '')
+        book_list = Book.objects.filter(author__name__contains=author_name, category__name__contains=category_name)
+        return render(request, 'catalog/error/wait.html', {})
     else:
         page = request.GET.get('page', 1)
         paginator = Paginator(book_list,2) #2 items per page
@@ -38,9 +51,10 @@ def index(request):
         except EmptyPage:
             book_list = paginator.page(paginator.num_pages)
 
+    category_list = Category.objects.all()
     return render(request,
                 'index.html',
-                context={'book_list':book_list,'form':form},
+                context={'book_list':book_list,'category_list':category_list,'form':form, 'form1':form1},
     )
 
 #----------------------------------------------------------------------------------

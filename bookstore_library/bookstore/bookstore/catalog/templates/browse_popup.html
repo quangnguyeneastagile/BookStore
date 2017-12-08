@@ -1,0 +1,26 @@
+<div class="modal fade" id="PopupBrowseModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content-popup">
+        <!-- Modal Header-->
+        <div class="modal-header popup_header col-centered">
+            <a href="#" class="" data-dismiss="modal"></a>
+            <!--h3 class="modal-title">Oops!</span></h3-->
+        </div>
+        <!-- END Modal Header-->
+
+        <!-- Modal Popup Content-->
+        {% if category_list %}
+        <ul>
+          <div class="modal-body col-centered popup_content">
+          {% for category in category_list %}
+            <li> {{category}}</li>
+          {% endfor %}
+          </div>
+        </ul>
+        {% endif %}
+
+      </div>
+
+    </div>
+  </div>

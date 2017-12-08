@@ -16,12 +16,19 @@
   <!-- Create a form to filter category -->
   <form action="" method="post">
         {% csrf_token %}
-        <lable for="book_author">Enter author name: </label>
         {{ form }}
         <input type="submit" value="OK">
   </form>
 <hr>
 
+<hr>
+  <!-- Create a form to filter category -->
+  <form action="" method="post">
+        {% csrf_token %}
+        {{ form1 }}
+        <input type="submit" value="OK">
+  </form>
+<hr>
 
 <h1>Book List</h1>
 

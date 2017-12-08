@@ -18,6 +18,18 @@
   height: 40px;
 }
 
+.arrow_up_sprite {
+	background: url('imgs/sprite.png') no-repeat -383px -32px;
+	width: 14px;
+	height: 10px;
+}
+
+.bookMedium_sprite {
+	background: url('../imgs/sprite.png') no-repeat -23px -18px;
+	width: 80px;
+	height: 73px;
+}
+
 .book_sprite {
 	background: url('../imgs/sprite.png') no-repeat -602px -35px;
 	width: 309px;
@@ -27,6 +39,12 @@
 .shopping_sprite {
 	background: url('../imgs/sprite.png') no-repeat -276px -162px;
 	width: 178px;
+	height: 41px;
+}
+
+.back_sprite {
+	background: url('../imgs/sprite.png') no-repeat -311px -262px;
+	width: 77px;
 	height: 41px;
 }
 
@@ -58,6 +76,12 @@
   margin: auto;
 }
 
+.modal-content-popup {
+  width: auto;
+  height: auto;
+  margin: auto;
+}
+
 #username, #password {
   border-style: none;
   width:270px;
@@ -86,4 +110,25 @@
   color: #000000;
   font-family: Roboto;
   font-size: 32px;
+}
+
+.popup_header {
+  background-color: #5ABCD3;
+  color: #FFFFFF;
+  font-family: Lobster;
+  font-size: 27px;
+}
+
+.popup_content {
+  background-color: #FFFFFF;
+  color: #000000;
+  font-family: Roboto;
+  font-size: 18px;
+}
+
+.popup_span_content {
+  background-color: #FFFFFF;
+  color: #5ABCD3;
+  font-family: Roboto;
+  font-size: 18px;
 }
