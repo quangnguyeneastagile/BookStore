@@ -11,7 +11,7 @@ from .forms import *
 # Create your views here.
 
 #@permission_required('catalog.can_mark_returned')
-def index(request):
+def catalog(request):
     #read book author to filter from form
     if request.method == 'POST':
         form = AuthorForm(request.POST)
