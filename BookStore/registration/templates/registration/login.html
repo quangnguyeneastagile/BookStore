@@ -1,0 +1,123 @@
+{% load staticfiles %}
+
+<!DOCTYPE html5>
+<html lang="en">
+<head>
+    <title>In Betweener Book Store</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+    <style>
+          .close_sprite {
+            background: url("{% static 'imgs/sprite.png' %}") no-repeat -230px -200px;
+            width: 32px;
+            height: 32px;
+            float: right;
+            margin: -30px -30px 0 0;
+          }
+
+          .signIn_sprite {
+            background: url("{% static 'imgs/sprite.png' %}") no-repeat -277px -211px;
+            width: 81px;
+            height: 40px;
+          }
+
+          .signUp_sprite {
+            background: url("{% static 'imgs/sprite.png' %}") no-repeat -369px -211px;
+            width: 81px;
+            height: 40px;
+          }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+  <h1>In Betweener</h1>
+
+  <!-- Trigger the login modal dialog with a link -->
+  <a href="#" data-toggle="modal" data-target="#signInModal">SIGN IN</a>
+  <!--  END SIGN IN Modal -->
+
+  <h1>List of current active user</h1>
+
+  {% for user in users %}
+      {{ user }}
+  {% endfor %}
+
+  <div class="modal fade" id="signInModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <!-- Modal Header-->
+        <div class="modal-header header_background white_color">
+            <a href="#" class="close_sprite" data-dismiss="modal"></a>
+            <h3 class="modal-title">SIGN IN</span></h3>
+        </div>
+        <!-- END Modal Header-->
+
+        <!-- Modal Login Content-->
+        <div class="modal-body left_padding">
+              <form method="post" action="#">
+                  <fieldset>
+                      <div class="form-group row col-lg-12">
+                          <label for="username">
+                            <div class="row">User name</div>
+                            <div class="row">
+                                <input type="text" id="username" name="username" value=""></input>
+                            </div>
+                          </label>
+                      </div>
+
+                      <div class="form-group row col-lg-12">
+                          <label for="password">
+                            <div class="row">Password</div>
+                            <div class="row">
+                                <input type="text" id="password" name="password" value="" style="border-style: none;"></input>
+                            </div>
+                          </label>
+                      </div>
+
+                      <div class="form-group row">
+                          <label for="remember">
+                            <div class="col-md-8 text-left">
+                                <div class="row">
+                                    <span>Remember me</span>
+                                    <input type="checkbox" class="checkbox style-2 pull-right"></label>
+                                </div>
+                                <div class="row">
+                                    <a href="#" id="forgot-password-link">Forgot your password?</a>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                              <button class="submit signIn_sprite" type="button"></button>
+                            </div>
+                          </label>
+                      </div>
+                  </fieldset>
+              </form>
+        </div>
+
+        <div class="modal-footer">
+            <div class="col-md-8 text-left">
+                <label for="signUp">NOT A MEMBER?</label>
+            </div>
+            <div class="col-md-4 pull-right">
+                <button class="submit signUp_sprite" type="button"></button>
+            <div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- END SIGN IN Modal -->
+
+</div>
+
+</body>
+</html>

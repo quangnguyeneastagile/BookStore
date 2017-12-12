@@ -22,7 +22,7 @@ def print_database(self):
     print('Author 2: ', Book.objects.all()[2].author.name)
 
 #@permission_required('catalog.can_mark_returned')
-def catalog(request):
+def index(request):
     #read book author to filter from form
     if request.method == 'POST':
         form = AuthorForm(request.POST)

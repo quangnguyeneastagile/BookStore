@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium.webdriver.firefox.webdriver import WebDriver
 
@@ -40,3 +41,8 @@ class MySeleniumTests(StaticLiveServerTestCase):
         #author_name_input = self.selenium.find_element_by_name('author_name')
         #author_name_input.send_keys('Hugo CDE')
         #self.selenium.find_element_by_xpath('//input[@value="OK"]').click()
+=======
+from django.test import TestCase
+
+# Create your tests here.
+>>>>>>> parent of 8aa7451... add tests.py for app catalog
