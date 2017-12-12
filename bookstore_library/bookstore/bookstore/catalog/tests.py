@@ -19,10 +19,6 @@ class MySeleniumTests(StaticLiveServerTestCase):
         cls.selenium.quit()
         super(MySeleniumTests, cls).tearDownClass()
 
-    #-------------------------------------
-
-    #-------------------------------------
-
     def create_db(self):
         for i in range(1,10):
             BookFactory(title = factory.Faker('sentence',nb_words=4),
@@ -30,46 +26,10 @@ class MySeleniumTests(StaticLiveServerTestCase):
                         category = CategoryFactory(name = factory.Faker('word'))
             )
         pass
-        # Author.objects.create(**{'name':'Hugo CDE'})
-        # Author.objects.create(**{'name':'Alice FHG'})
-        # Category.objects.create(**{'name':'Scientific'})
-        # Category.objects.create(**{'name':'Fiction'})
-        #
-
-
-        # book1 = {'title':'East Agile 3rd week training',
-        #         'category':Category.objects.all()[0],
-        #         'author':Author.objects.all()[0],
-        #         'description': "No Description",
-        #         'price'     :    10000,
-        #         'quantity'  :    1,
-        #
-        # }
-
-        # book2 = {'title':'Intel Training',
-        #         'category':Category.objects.all()[1],
-        #         'author':Author.objects.all()[1],
-        #         'description': "No Description",
-        #         'price'     :    10000,
-        #         'quantity'  :    1,
-        # }
-        #
-        # book3 = {'title':'EA AE Training',
-        #         'category':Category.objects.all()[0],
-        #         'author':Author.objects.all()[1],
-        #         'description': "No Description",
-        #         'price'     :    10000,
-        #         'quantity'  :    1,
-        # }
-        #
-        # Book.objects.create(**book1)
-        # Book.objects.create(**book2)
-        # Book.objects.create(**book3)
 
     def test_author(self):
         #create 10 books
-
-
+        self.create_db()
         self.selenium.get('%s%s' % (self.live_server_url, '/catalog/'))
         time.sleep(20)
         #import pdb; pdb.set_trace
