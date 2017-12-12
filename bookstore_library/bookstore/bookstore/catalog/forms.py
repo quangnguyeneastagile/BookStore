@@ -6,7 +6,6 @@ class CategoryForm(forms.Form):
     options = [('','All categories'),]
     for category in category_list:
         options.append((category, category))
-    #options = [('Scientific','Scientific'),('Fiction','Fiction')]
     category_name = forms.CharField(label = 'Category', widget=forms.Select(choices=options))
 
     def clean_category_name(self):

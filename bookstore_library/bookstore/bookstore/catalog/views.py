@@ -10,6 +10,17 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .forms import *
 # Create your views here.
 
+def print_database(self):
+    print('Book 0: ', Book.objects.all()[0].title)
+    print('Category 0: ', Book.objects.all()[0].category.name)
+    print('Author 0: ', Book.objects.all()[0].author.name)
+    print('Book 1: ', Book.objects.all()[1].title)
+    print('Category 1: ', Book.objects.all()[1].category.name)
+    print('Author 1: ', Book.objects.all()[1].author.name)
+    print('Book 2: ', Book.objects.all()[2].title)
+    print('Category 2: ', Book.objects.all()[2].category.name)
+    print('Author 2: ', Book.objects.all()[2].author.name)
+
 #@permission_required('catalog.can_mark_returned')
 def catalog(request):
     #read book author to filter from form
@@ -31,7 +42,7 @@ def catalog(request):
         category_name = request.session.get('category_name','')
         author_name = request.session.get('author_name', '')
         book_list = Book.objects.filter(author__name__contains=author_name, category__name__contains=category_name)
-        form = AuthorForm(initial={'author_name':'Type in author name'})
+        form = AuthorForm(initial={'author_name':''})
         form1 = CategoryForm(initial={'category_name':'All categories'})
 
     if book_list.all().count() <= 0:

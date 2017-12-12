@@ -34,7 +34,7 @@ class Book(models.Model):
     description = models.TextField(default="No description availalbe.")
     quantity = models.IntegerField("Quantity", default=0)
     price = models.IntegerField("Price", default=0)
-    image = models.ImageField(upload_to='uploads/%Y/%m/%d/')
+    image = models.ImageField(upload_to='uploads/%Y/%m/%d/', default = None)
 
     def image_tag(self):
         if self.image:
